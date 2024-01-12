@@ -22,7 +22,7 @@ export class Redmine {
 	get projects() {
 		throw new Error('not implemented')
 	}
-	get _projectMemberships() {
+	get unstableProjectMemberships() {
 		throw new Error('not implemented')
 	}
 	get users() {
