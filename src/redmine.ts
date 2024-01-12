@@ -5,11 +5,6 @@ export interface Redmine {
 		host: string
 		apiKey: string
 		root: string
-		protocol: 'http' | 'https'
-		sslCaCert: string
-		sslCaClienCert: string
-		sslClientKey: string
-		sslClientPassphare: string
 	}
 }
 
@@ -20,7 +15,7 @@ export class Redmine {
 	constructor(config: Redmine['Config']) {
 		this.#config = config
 		this.#endpoint =
-			new URL(config.root, `${config.protocol}://${config.host}`).href
+			new URL(config.root, `https://${config.host}`).href
 	}
 
 	get issues() {
