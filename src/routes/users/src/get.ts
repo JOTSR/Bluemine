@@ -2,7 +2,7 @@ import { ISOString } from '../../../../types.ts'
 import { Rest } from '../../../../utils.ts'
 
 export function get(endpoint: string, apiKey: string) {
-	return (id: number, { memberships, groups }: Partial<GetOption>) => {
+	return (id: number, { memberships, groups }: Partial<GetOptions>) => {
 		const params = new URLSearchParams()
 
 		if (memberships && groups) params.append('include', 'memberships,groups')
@@ -15,7 +15,7 @@ export function get(endpoint: string, apiKey: string) {
 	}
 }
 
-export type GetOption = {
+export type GetOptions = {
 	memberships: boolean
 	groups: boolean
 }
