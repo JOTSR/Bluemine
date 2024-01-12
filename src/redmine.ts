@@ -1,4 +1,4 @@
-import { userRoute } from './routes/users/mod.ts'
+import { Users } from './routes/users/mod.ts'
 
 export interface Redmine {
 	Config: {
@@ -26,7 +26,7 @@ export class Redmine {
 		throw new Error('not implemented')
 	}
 	get users() {
-		return userRoute(this.#endpoint, this.#apiKey)
+		return new Users(this.#endpoint, this.#apiKey)
 	}
 	get timeEntries() {
 		throw new Error('not implemented')
