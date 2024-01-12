@@ -1,8 +1,26 @@
-import { create } from './src/create.ts'
+import { Config, create, User } from './src/create.ts'
 import { erase } from './src/delete.ts'
-import { get } from './src/get.ts'
-import { list } from './src/list.ts'
-import { update } from './src/update.ts'
+import { get, GetOptions, GetResult } from './src/get.ts'
+import { list, ListOptions, ListResult } from './src/list.ts'
+import { update, UpdateOptions } from './src/update.ts'
+
+export interface Users {
+	User: User
+	Create: {
+		Config: Config
+	}
+	Get: {
+		Options: GetOptions
+		Result: GetResult
+	}
+	List: {
+		Options: ListOptions
+		Result: ListResult
+	}
+	Update: {
+		Options: UpdateOptions
+	}
+}
 
 export class Users {
 	#endpoint: string
