@@ -2,20 +2,18 @@ import { userRoute } from './routes/users/mod.ts'
 
 export interface Redmine {
 	Config: {
-		host: string
+		endpoint: string
 		apiKey: string
-		root: string
 	}
 }
 
 export class Redmine {
-	#config: Redmine['Config']
+	#apiKey: string
 	#endpoint: string
 
-	constructor(config: Redmine['Config']) {
-		this.#config = config
-		this.#endpoint =
-			new URL(config.root, `https://${config.host}`).href
+	constructor({ apiKey, endpoint }: Redmine['Config']) {
+		this.#apiKey = apiKey
+		this.#endpoint = endpoint
 	}
 
 	get issues() {
@@ -28,7 +26,7 @@ export class Redmine {
 		throw new Error('not implemented')
 	}
 	get users() {
-		return userRoute(this.#endpoint, this.#config.apiKey)
+		return userRoute(this.#endpoint, this.#apiKey)
 	}
 	get timeEntries() {
 		throw new Error('not implemented')
