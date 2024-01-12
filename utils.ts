@@ -11,7 +11,7 @@ export class Rest {
 	static async post<T extends JsonValue, R extends JsonValue>(
 		endpoint: string,
 		apiKey: string,
-		payload: T
+		payload: T,
 	): Promise<R> {
 		const response = await fetch(endpoint, {
 			body: JSON.stringify(payload),
@@ -24,7 +24,7 @@ export class Rest {
 
 	static async get<T extends JsonValue>(
 		endpoint: string,
-		apiKey: string
+		apiKey: string,
 	): Promise<T> {
 		const response = await fetch(endpoint, {
 			method: 'GET',
@@ -34,16 +34,24 @@ export class Rest {
 		return response.json()
 	}
 
-	static async put<T extends JsonValue>(endpoint: string, apiKey: string): Promise<T> {
+	static async put<T extends JsonValue, R extends JsonValue>(
+		endpoint: string,
+		apiKey: string,
+		payload: T,
+	): Promise<R> {
 		const response = await fetch(endpoint, {
 			method: 'PUT',
+			body: JSON.stringify(payload),
 			cache: 'no-cache',
 			headers: this.#headers(apiKey),
 		})
 		return response.json()
 	}
 
-	static async delete<T extends JsonValue>(endpoint: string, apiKey: string): Promise<T> {
+	static async delete<T extends JsonValue>(
+		endpoint: string,
+		apiKey: string,
+	): Promise<T> {
 		const response = await fetch(endpoint, {
 			method: 'DELETE',
 			cache: 'no-cache',
