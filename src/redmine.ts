@@ -61,55 +61,55 @@ export class Redmine {
 	get timeEntries() {
 		throw new Error('not implemented')
 	}
-	get news() {
+	get unstableNews() {
 		throw new Error('not implemented')
 	}
-	get issueRelation() {
+	get unstableIssueRelation() {
 		throw new Error('not implemented')
 	}
-	get versions() {
+	get unstableVersions() {
 		throw new Error('not implemented')
 	}
-	get wikiPages() {
+	get unstableWikiPages() {
 		throw new Error('not implemented')
 	}
-	get queries() {
+	get unstableQueries() {
 		throw new Error('not implemented')
 	}
-	get attachments() {
+	get unstableAttachments() {
 		throw new Error('not implemented')
 	}
-	get issueStatuses() {
+	get unstableIssueStatuses() {
 		throw new Error('not implemented')
 	}
-	get tracker() {
+	get unstableTracker() {
 		throw new Error('not implemented')
 	}
-	get enumerations() {
+	get unstableEnumerations() {
 		throw new Error('not implemented')
 	}
-	get issueCategories() {
+	get unstableIssueCategories() {
 		throw new Error('not implemented')
 	}
-	get roles() {
+	get unstableRoles() {
 		throw new Error('not implemented')
 	}
-	get groups() {
+	get unstableGroups() {
 		throw new Error('not implemented')
 	}
-	get customFields() {
+	get unstableCustomFields() {
 		throw new Error('not implemented')
 	}
-	get search() {
+	get unstableSearch() {
 		throw new Error('not implemented')
 	}
-	get files() {
+	get unstableFiles() {
 		throw new Error('not implemented')
 	}
-	get myAccount() {
+	get unstableMyAccount() {
 		throw new Error('not implemented')
 	}
-	get journals() {
+	get unstableJournals() {
 		throw new Error('not implemented')
 	}
 }
