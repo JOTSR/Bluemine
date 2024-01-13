@@ -31,18 +31,70 @@ export class Users {
 		this.#apiKey = apiKey
 	}
 
+	/**
+	 * List all the users alphabetically sorted by login.
+	 * 
+	 * @param { number } limit - Number of users to retrieve (max: 100).
+	 * @param { number } offset - Frame query offset.
+	 * @returns Users[]
+	 *
+	 * @example
+	 * ```ts
+	 * const userList = await redmine.users.list({ limit: 20, offset: 5 })
+	 * console.log(userList.users)
+	 * ```
+	 */
 	get list() {
 		return list(this.#endpoint, this.#apiKey)
 	}
+
+	/**
+	 * Create a new user.
+	 */
 	get create() {
 		return create(this.#endpoint, this.#apiKey)
 	}
+
+	/**
+	 * Get a specific user.
+	 * 
+	 * @param { number } id - User id.
+	 * @param options - Get user memberships and/or groups.
+	 * @returns User
+	 *
+	 * @example
+	 * ```ts
+	 * const user = await redmine.user.get(5)
+	 * console.log(user.admin)
+	 * console.log(user.mail)
+	 * ```
+	 */
 	get get() {
 		return get(this.#endpoint, this.#apiKey)
 	}
+
+	/**
+	 * Update an existing user profile.
+	 * 
+	 * @param { number } id - User id.
+	 * @param options - Same as create user,
+	 * all specified properties will be overwritten.
+	 * 
+	 * @example
+	 * ```ts
+	 * await redmine.users.update(5, { mail: 'new.mail@example.com' })
+	 * ```
+	 */
 	get update() {
 		return update(this.#endpoint, this.#apiKey)
 	}
+
+	/**
+	 * Delete the specified user account.
+	 * ⚠️ This action is irreversible ⚠️
+	 * 
+	 * @param { number } id - User id. 
+	 */
 	get erase() {
 		return erase(this.#endpoint, this.#apiKey)
 	}
