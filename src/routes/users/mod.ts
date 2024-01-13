@@ -37,7 +37,7 @@ export class Users {
 	 * @param { number } limit - Number of users to retrieve (max: 100).
 	 * @param { number } offset - Frame query offset.
 	 * @param { string } status - Filter users by status. (default: active)
-	 * @param { string } name - Filter users by status.
+	 * @param { string } name - Filter users by name, login, firstname and lastname.
 	 * @param { number } groupId - Filter users by group_id.
 	 * @returns Users[]
 	 *
