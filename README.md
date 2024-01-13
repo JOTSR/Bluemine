@@ -42,10 +42,10 @@ await redmine.users.update(id, { mail: 'new.mail@example.com' })
 ### Groups
 
 ```ts
-await redmine.groups.create({ name: 'my-group' })
-const { groups } = await redmine.groups.list()
+await redmine.unstableGroups.create({ name: 'my-group' })
+const { groups } = await redmine.unstableGroups.list()
 const [myGroup] = groups.filter(({ name }) => name === 'my-group')
-await redmine.groups.addUser(myGroup.id, { id: 5 }) //add user of id 5 to 'my-group"
+await redmine.unstableGroups.addUser(myGroup.id, { id: 5 }) //add user of id 5 to 'my-group"
 ```
 
 [Documentation](https://deno.land/x/bluemine/mod.ts)

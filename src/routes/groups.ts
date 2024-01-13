@@ -16,7 +16,7 @@ export class Groups {
 	 *
 	 * @example
 	 * ```ts
-	 * const groupList = await redmine.groups.list()
+	 * const groupList = await redmine.unstableGroups.list()
 	 * console.log(groupList.groups)
 	 * ```
 	 *
@@ -37,7 +37,7 @@ export class Groups {
 	 *
 	 * @example
 	 * ```ts
-	 * await redmine.groups.create({ name: 'my-group', userIds: [1, 2, 3] })
+	 * await redmine.unstableGroups.create({ name: 'my-group', userIds: [1, 2, 3] })
 	 * ```
 	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Groups#POST
@@ -62,7 +62,7 @@ export class Groups {
 	 *
 	 * @example
 	 * ```ts
-	 * const group = await redmine.groups.get(5)
+	 * const group = await redmine.unstableGroups.get(5)
 	 * console.log(group.name)
 	 * ```
 	 *
@@ -88,7 +88,7 @@ export class Groups {
 	 * @example
 	 * ```ts
 	 * const [ bob ] = await redmine.users.list({ limit: 1, name: 'bob' })
-	 * await redmine.groups.addUser(5, bob) //bob is added to group 5
+	 * await redmine.unstableGroups.addUser(5, bob) //bob is added to group 5
 	 * ```
 	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Groups#POST-2
@@ -108,7 +108,7 @@ export class Groups {
 	 * @example
 	 * ```ts
 	 * const [ bob ] = await redmine.users.list({ limit: 1, name: 'bob' })
-	 * await redmine.groups.removeUser(5, bob) //bob is removed from group 5
+	 * await redmine.unstableGroups.removeUser(5, bob) //bob is removed from group 5
 	 * ```
 	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Groups#DELETE-2
