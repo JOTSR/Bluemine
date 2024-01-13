@@ -9,7 +9,7 @@ export function list(endpoint: string, apiKey: string) {
 
 		const requestURL = `${endpoint}/users.json?${payload.toString()}`
 
-		return Rest.get<GetResult>(requestURL, apiKey)
+		return Rest.get<ListResult>(requestURL, apiKey)
 	}
 }
 
