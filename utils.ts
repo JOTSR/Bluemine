@@ -8,6 +8,16 @@ export class Rest {
 		}
 	}
 
+	static async #jsonOrThrow(response: Response) {
+		if (response.ok) return response.json()
+		const body = await response.text()
+		const cause = new Error(body)
+		throw new TypeError(
+			`invalid json, bad response from "${response.url}" [${response.status}]: ${response.statusText}`,
+			{ cause },
+		)
+	}
+
 	static async post<T extends JsonValue, R extends JsonValue>(
 		endpoint: string,
 		apiKey: string,
@@ -19,7 +29,7 @@ export class Rest {
 			cache: 'no-cache',
 			headers: this.#headers(apiKey),
 		})
-		return response.json()
+		return this.#jsonOrThrow(response)
 	}
 
 	static async get<T extends JsonValue>(
@@ -31,7 +41,7 @@ export class Rest {
 			cache: 'no-cache',
 			headers: this.#headers(apiKey),
 		})
-		return response.json()
+		return this.#jsonOrThrow(response)
 	}
 
 	static async put<T extends JsonValue, R extends JsonValue>(
@@ -45,7 +55,7 @@ export class Rest {
 			cache: 'no-cache',
 			headers: this.#headers(apiKey),
 		})
-		return response.json()
+		return this.#jsonOrThrow(response)
 	}
 
 	static async delete<T extends JsonValue>(
@@ -57,6 +67,6 @@ export class Rest {
 			cache: 'no-cache',
 			headers: this.#headers(apiKey),
 		})
-		return response.json()
+		return this.#jsonOrThrow(response)
 	}
 }
