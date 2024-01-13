@@ -33,7 +33,6 @@ export class Users {
 
 	/**
 	 * List all the users alphabetically sorted by login.
-	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET
 	 *
 	 * @param { number } limit - Number of users to retrieve (max: 100).
 	 * @param { number } offset - Frame query offset.
@@ -47,6 +46,8 @@ export class Users {
 	 * const userList = await redmine.users.list({ limit: 20, offset: 5 })
 	 * console.log(userList.users)
 	 * ```
+	 * 
+	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET
 	 */
 	get list() {
 		return list(this.#endpoint, this.#apiKey)
@@ -54,6 +55,8 @@ export class Users {
 
 	/**
 	 * Create a new user.
+	 * 
+	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#POST
 	 */
 	get create() {
 		return create(this.#endpoint, this.#apiKey)
@@ -72,6 +75,8 @@ export class Users {
 	 * console.log(user.admin)
 	 * console.log(user.mail)
 	 * ```
+	 * 
+	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET-2
 	 */
 	get get() {
 		return get(this.#endpoint, this.#apiKey)
@@ -88,6 +93,8 @@ export class Users {
 	 * ```ts
 	 * await redmine.users.update(5, { mail: 'new.mail@example.com' })
 	 * ```
+	 * 
+	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#PUT
 	 */
 	get update() {
 		return update(this.#endpoint, this.#apiKey)
@@ -98,6 +105,8 @@ export class Users {
 	 * ⚠️ This action is irreversible ⚠️
 	 *
 	 * @param { number } id - User id.
+	 * 
+	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#DELETE
 	 */
 	get erase() {
 		return erase(this.#endpoint, this.#apiKey)
