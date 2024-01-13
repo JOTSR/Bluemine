@@ -33,9 +33,13 @@ export class Users {
 
 	/**
 	 * List all the users alphabetically sorted by login.
+	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET
 	 *
 	 * @param { number } limit - Number of users to retrieve (max: 100).
 	 * @param { number } offset - Frame query offset.
+	 * @param { string } status - Filter users by status. (default: active)
+	 * @param { string } name - Filter users by status.
+	 * @param { number } groupId - Filter users by group_id.
 	 * @returns Users[]
 	 *
 	 * @example
