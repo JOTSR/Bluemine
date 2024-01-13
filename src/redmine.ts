@@ -1,3 +1,4 @@
+import { Groups } from './routes/groups.ts'
 import { Users } from './routes/users/mod.ts'
 
 export interface Redmine {
@@ -94,8 +95,21 @@ export class Redmine {
 	get unstableRoles() {
 		throw new Error('not implemented')
 	}
+
+	/**
+	 * Perform actions on groups.
+	 *
+	 * @example
+	 * ```ts
+	 * await redmine.groups.create({ name: 'my-group' })
+	 * const { groups } = await redmine.groups.list()
+	 *
+	 * const [ myGroup ] = groups.filter(({name}) => name === 'my-group')
+	 * await redmine.groups.addUser(myGroup.id, { id: 5 }) //add user of id 5 to 'my-group"
+	 * ```
+	 */
 	get unstableGroups() {
-		throw new Error('not implemented')
+		return new Groups(this.#endpoint, this.#apiKey)
 	}
 	get unstableCustomFields() {
 		throw new Error('not implemented')

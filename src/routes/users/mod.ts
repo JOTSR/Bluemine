@@ -46,7 +46,7 @@ export class Users {
 	 * const userList = await redmine.users.list({ limit: 20, offset: 5 })
 	 * console.log(userList.users)
 	 * ```
-	 * 
+	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET
 	 */
 	get list() {
@@ -55,7 +55,7 @@ export class Users {
 
 	/**
 	 * Create a new user.
-	 * 
+	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#POST
 	 */
 	get create() {
@@ -75,7 +75,7 @@ export class Users {
 	 * console.log(user.admin)
 	 * console.log(user.mail)
 	 * ```
-	 * 
+	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#GET-2
 	 */
 	get get() {
@@ -93,7 +93,7 @@ export class Users {
 	 * ```ts
 	 * await redmine.users.update(5, { mail: 'new.mail@example.com' })
 	 * ```
-	 * 
+	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#PUT
 	 */
 	get update() {
@@ -105,7 +105,7 @@ export class Users {
 	 * ⚠️ This action is irreversible ⚠️
 	 *
 	 * @param { number } id - User id.
-	 * 
+	 *
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#DELETE
 	 */
 	get erase() {
