@@ -3,9 +3,9 @@ import { User } from './create.ts'
 
 export function update(endpoint: string, apiKey: string) {
 	return (id: string, options: UpdateOptions) => {
-		const { href } = new URL(`users/${id}.json`, endpoint)
+		const requestURL = `${endpoint}/users/${id}.json`
 
-		return Rest.put(href, apiKey, JSON.stringify(options))
+		return Rest.put(requestURL, apiKey, JSON.stringify(options))
 	}
 }
 

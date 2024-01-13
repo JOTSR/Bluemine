@@ -2,8 +2,8 @@ import { Rest } from '../../../../utils.ts'
 
 export function erase(endpoint: string, apiKey: string) {
 	return (id: string) => {
-		const { href } = new URL(`users/${id}.json`, endpoint)
+		const requestURL = `${endpoint}/users/${id}.json`
 
-		return Rest.delete(href, apiKey)
+		return Rest.delete(requestURL, apiKey)
 	}
 }

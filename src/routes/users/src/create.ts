@@ -1,7 +1,7 @@
 import { Rest } from '../../../../utils.ts'
 
 export function create(endpoint: string, apiKey: string) {
-	const { href } = new URL('users.json', endpoint)
+	const requestURL = `${endpoint}/users.json`
 
 	return (
 		{
@@ -34,7 +34,7 @@ export function create(endpoint: string, apiKey: string) {
 			send_information: sendCreationMail,
 		}
 
-		return Rest.post(href, apiKey, payload)
+		return Rest.post(requestURL, apiKey, payload)
 	}
 }
 

@@ -9,9 +9,9 @@ export function get(endpoint: string, apiKey: string) {
 		else if (memberships) params.append('include', 'memberships')
 		else if (groups) params.append('include', 'groups')
 
-		const { href } = new URL(`users/${id}.json?${params.toString()}`, endpoint)
+		const requestURL = `${endpoint}/users/${id}.json?${params.toString()}`
 
-		return Rest.get<GetResult>(href, apiKey)
+		return Rest.get<GetResult>(requestURL, apiKey)
 	}
 }
 

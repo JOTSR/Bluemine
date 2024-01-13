@@ -7,9 +7,9 @@ export function list(endpoint: string, apiKey: string) {
 		if (limit) payload.append('limit', limit.toString())
 		if (offset) payload.append('offset', offset.toString())
 
-		const { href } = new URL(`users.json?${payload.toString()}`, endpoint)
+		const requestURL = `${endpoint}/users.json?${payload.toString()}`
 
-		return Rest.get<GetResult>(href, apiKey)
+		return Rest.get<GetResult>(requestURL, apiKey)
 	}
 }
 
