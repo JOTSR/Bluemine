@@ -32,7 +32,7 @@ export class Users {
 	}
 
 	/**
-	 * List all the users alphabetically sorted by login.
+	 * List all the users alphabetically ordered by login.
 	 *
 	 * @param { number } limit - Number of users to retrieve (max: 100).
 	 * @param { number } offset - Frame query offset.
