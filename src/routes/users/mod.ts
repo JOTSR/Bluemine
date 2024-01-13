@@ -33,7 +33,7 @@ export class Users {
 
 	/**
 	 * List all the users alphabetically sorted by login.
-	 * 
+	 *
 	 * @param { number } limit - Number of users to retrieve (max: 100).
 	 * @param { number } offset - Frame query offset.
 	 * @returns Users[]
@@ -57,7 +57,7 @@ export class Users {
 
 	/**
 	 * Get a specific user.
-	 * 
+	 *
 	 * @param { number } id - User id.
 	 * @param options - Get user memberships and/or groups.
 	 * @returns User
@@ -75,11 +75,11 @@ export class Users {
 
 	/**
 	 * Update an existing user profile.
-	 * 
+	 *
 	 * @param { number } id - User id.
 	 * @param options - Same as create user,
 	 * all specified properties will be overwritten.
-	 * 
+	 *
 	 * @example
 	 * ```ts
 	 * await redmine.users.update(5, { mail: 'new.mail@example.com' })
@@ -92,8 +92,8 @@ export class Users {
 	/**
 	 * Delete the specified user account.
 	 * ⚠️ This action is irreversible ⚠️
-	 * 
-	 * @param { number } id - User id. 
+	 *
+	 * @param { number } id - User id.
 	 */
 	get erase() {
 		return erase(this.#endpoint, this.#apiKey)

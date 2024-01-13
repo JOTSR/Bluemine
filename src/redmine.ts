@@ -7,6 +7,23 @@ export interface Redmine {
 	}
 }
 
+/**
+ * Helper to communicate with Redmine REST API.
+ *
+ * @example
+ * ```ts
+ * const apiKey = Deno.env.get('REDMINE_API_KEY')
+ * const endpoint = Deno.env.get('REDMINE_API_ENDPOINT')
+ *
+ * const redmine = new Redmine({ apikey, endpoint })
+ *
+ * const userList = await redmine.users.list({ limit: 20, offset: 5 })
+ * const { id } = userList.filter(
+ *  ({ mail }) => mail === 'old.mail@example.com'
+ * )
+ * await redmine.users.update(id, { mail: 'new.mail@example.com' })
+ * ```
+ */
 export class Redmine {
 	#apiKey: string
 	#endpoint: string
@@ -25,6 +42,19 @@ export class Redmine {
 	get unstableProjectMemberships() {
 		throw new Error('not implemented')
 	}
+
+	/**
+	 * Perform actions on users.
+	 *
+	 * @example
+	 * ```ts
+	 * const userList = await redmine.users.list({ limit: 20, offset: 5 })
+	 * const { id } = userList.filter(
+	 *  ({ mail }) => mail === 'old.mail@example.com'
+	 * )
+	 * await redmine.users.update(id, { mail: 'new.mail@example.com' })
+	 * ```
+	 */
 	get users() {
 		return new Users(this.#endpoint, this.#apiKey)
 	}
