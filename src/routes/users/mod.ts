@@ -59,7 +59,7 @@ export class Users {
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Users#POST
 	 */
 	get create() {
-		return create(this.#endpoint, this.#apiKey)
+		return create(this.#endpoint, this.#apiKey) as unknown as Promise<{ user: GetResult }>
 	}
 
 	/**
