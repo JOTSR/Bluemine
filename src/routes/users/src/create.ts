@@ -23,7 +23,7 @@ export function create(endpoint: string, apiKey: string) {
 				lastname,
 				firstname,
 				mail,
-				password: options,
+				password: ('password') in options ? options.password : undefined,
 				auth_source_id: authSourceId,
 				mail_notification: mailNotification,
 				must_change_passwd: options.mustChangePassword,
