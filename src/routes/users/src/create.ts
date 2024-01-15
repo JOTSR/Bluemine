@@ -1,4 +1,5 @@
 import { Rest } from '../../../../utils.ts'
+import { type GetResult } from './get.ts'
 
 export function create(endpoint: string, apiKey: string) {
 	const requestURL = `${endpoint}/users.json`
@@ -34,7 +35,9 @@ export function create(endpoint: string, apiKey: string) {
 			send_information: sendCreationMail,
 		}
 
-		return Rest.post(requestURL, apiKey, payload)
+		return Rest.post(requestURL, apiKey, payload) as unknown as Promise<
+			{ user: GetResult }
+		>
 	}
 }
 
