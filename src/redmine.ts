@@ -24,7 +24,7 @@ export interface Redmine {
  * )
  * await redmine.users.update(id, { mail: 'new.mail@example.com' })
  * ```
- * 
+ *
  * @see https://www.redmine.org/projects/redmine/wiki/Rest_api
  */
 export class Redmine {
