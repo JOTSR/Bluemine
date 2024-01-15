@@ -23,7 +23,7 @@ export class Groups {
 	 * @see https://www.redmine.org/projects/redmine/wiki/Rest_Groups#GET
 	 */
 	list() {
-		return Rest.get<{ id: number; name: string }>(
+		return Rest.get<{ groups: { id: number; name: string }[] }>(
 			`${this.#endpoint}/groups.json`,
 			this.#apiKey,
 		)
